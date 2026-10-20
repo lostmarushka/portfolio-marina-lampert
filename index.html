@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Name</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="menubar">
+    <div class="left"><b>Your Name</b><span>File</span><span>Edit</span><span>View</span></div>
+    <div id="clock"></div>
+  </div>
+
+  <main class="desktop" id="desktop" aria-label="Desktop">
+
+    <!-- PROJECTS
+         Each <article class="icon"> is one project on the desktop.
+         left / top   = starting position (% of the screen)
+         tint colour  = the hex value in the style attribute, shown until you add a cover image
+
+         PER PROJECT YOU CAN SET:
+         1. Cover image (shown on the desktop AND at the top of the window):
+            <div class="thumb"><img src="img/album-cover/cover.jpg" alt=""></div>
+         2. Description: one or more <p class="text"> paragraphs.
+         3. More images (only shown when the project is opened):
+            <div class="gallery"><img src="img/album-cover/1.jpg" alt="Back of the sleeve"></div>
+         3b. Facts shown as a small table under the text (year, client, role ...):
+            <dl class="meta"><dt>Year</dt><dd>2024</dd><dt>Client</dt><dd>Name</dd></dl>
+         3c. Free-form content (long case studies): put anything inside <div class="details">
+            (headings <h3>, paragraphs, lists, images, videos). It scrolls inside the window.
+         4. A YouTube video instead of the cover in the window:
+            data-video="VIDEO_ID" on the article (the part after v= in the link).
+            Without your own cover image, YouTube's preview picture is used as the icon. -->
+
+    <article class="icon" tabindex="0" data-video="df-kO0fuxkM" style="left:6%; top:6%; --tint:#c9b8a6">
+      <div class="thumb"></div>
+      <h2 class="label">Musicvideo *Flickering Lights*</h2>
+      <dl class="meta">
+        <dt>Year</dt><dd>2026</dd>
+        <dt>Client</dt><dd>Enrico Fusaro</dd>
+        <dt>Role</dt><dd>Camera MV, Photography (Promo, Instagram, Spotify)</dd>
+      </dl>
+      <div class="details">
+        <p>Write as much as you like here. The window scrolls when the content gets longer than the screen.</p>
+      </div>
+      <div class="gallery">
+        <img src="img/enrico_4.jpg" alt="Front and back">
+        <img src="img/DSC00292_mit static.jpg" alt="Inner sleeve">
+        <img src="img/enrico_1.jpg" alt="Back cover">
+        <img src="img/enrico_3.jpg" alt="Vinyl">
+      </div>
+    </article>
+
+    <article class="icon" tabindex="0" style="left:20%; top:30%; --tint:#7f93a0">
+      <div class="thumb"></div>
+      <h2 class="label">Vinyl Sleeve</h2>
+      <p class="text">Gatefold sleeve, two-colour print.</p>
+    </article>
+
+    <article class="icon" tabindex="0" style="left:40%; top:8%; --tint:#2b2b2b">
+      <div class="thumb"></div>
+      <h2 class="label">Stage Visuals</h2>
+      <p class="text">Live visuals for a 12-city tour.</p>
+    </article>
+
+    <article class="icon" tabindex="0" style="left:62%; top:22%; --tint:#d6c35a">
+      <div class="thumb"></div>
+      <h2 class="label">Merch</h2>
+      <p class="text">Tees, hoodies and a tote.</p>
+    </article>
+
+    <article class="icon" tabindex="0" style="left:80%; top:6%; --tint:#b86a5a">
+      <div class="thumb"></div>
+      <h2 class="label">Tour Poster</h2>
+      <p class="text">Poster series, screen printed.</p>
+    </article>
+
+    <article class="icon" tabindex="0" style="left:8%; top:54%; --tint:#6f7d5a">
+      <div class="thumb"></div>
+      <h2 class="label">Wine Label</h2>
+      <p class="text">Label for a small-batch bottle.</p>
+    </article>
+
+    <article class="icon" tabindex="0" style="left:48%; top:50%; --tint:#a9a9c9">
+      <div class="thumb"></div>
+      <h2 class="label">Magazine</h2>
+      <p class="text">Art direction and layout, issue 04.</p>
+    </article>
+
+    <article class="icon" tabindex="0" style="left:74%; top:52%; --tint:#e0e0dc">
+      <div class="thumb"></div>
+      <h2 class="label">Identity</h2>
+      <p class="text">Logotype and brand system.</p>
+    </article>
+
+    <!-- ABOUT (opened from the dock; hidden on the desktop) -->
+    <article class="about" id="about" hidden style="--tint:#5b8def">
+      <h2>About</h2>
+      <p class="text">Replace this with two or three sentences about you and what you make.</p>
+    </article>
+
+  </main>
+
+  <nav class="dock" aria-label="Dock">
+    <button style="--c:#5b8def" id="open-about" aria-label="About">i</button>
+    <a style="--c:#34c759" href="mailto:you@example.com" aria-label="Email">@</a>
+    <a style="--c:#e1306c" href="https://www.instagram.com/yourhandle/" aria-label="Instagram">ig</a>
+  </nav>
+
+  <!-- TEMPLATES (not shown on the page; main.js copies them) -->
+
+  <!-- The window that opens when you click a project. Change its structure here. -->
+  <template id="tpl-window">
+    <div class="win">
+      <div class="bar">
+        <div class="dots">
+          <button class="r" aria-label="Close"></button>
+          <button class="y" aria-label="Minimise"></button>
+          <button class="g" aria-label="Zoom"></button>
+        </div>
+        <div class="t"></div>
+      </div>
+      <div class="body">
+        <!-- Only one of these three stays, depending on the project: video, cover image, or colour block.
+             {id} is replaced by the YouTube video ID. -->
+        <iframe class="media video"
+                data-embed="https://www.youtube-nocookie.com/embed/{id}?enablejsapi=1&amp;rel=0"
+                title="" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen"
+                allowfullscreen loading="lazy"></iframe>
+        <img class="media" alt="">
+        <div class="media"></div>
+        <div class="info"><h2></h2></div>
+      </div>
+    </div>
+  </template>
+
+  <!-- Desktop icon picture for video projects without their own cover image -->
+  <template id="tpl-yt-thumb">
+    <img alt="" data-src="https://i.ytimg.com/vi/{id}/hqdefault.jpg">
+  </template>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,18 +1,93 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+# ==========================
+# Operating system
+# ==========================
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+Desktop.ini
 
-# Other files and folders
-.settings/
+# ==========================
+# VS Code and editors
+# ==========================
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+*.swo
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+# ==========================
+# Logs and temporary files
+# ==========================
+*.log
+*.tmp
+*.temp
+*.bak
+*.orig
+*~
+*.part
+*.crdownload
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+# ==========================
+# Private configuration / secrets
+# ==========================
+.env
+.env.*
+!.env.example
+
+# ==========================
+# Local originals and raw media
+# ==========================
+/media-originals/
+/media-raw/
+/media-proxies/
+/media-exports/
+
+# Adobe Photoshop
+*.psd
+*.psb
+
+# Adobe Illustrator
+*.ai
+
+# Adobe InDesign
+*.indd
+*.idml
+
+# Adobe After Effects
+*.aep
+*.aepx
+
+# Adobe Premiere Pro
+*.prproj
+
+# DaVinci Resolve
+*.drp
+
+# RAW photo formats
+*.raw
+*.cr2
+*.cr3
+*.nef
+*.arw
+*.dng
+
+# video source files
+*.mov
+*.mp4
+*.avi
+
+# audio source files
+*.wav
+*.aiff
+*.aif
+
+# ==========================
+# Optional build output
+# Uncomment only if you use a build system
+# and these folders are generated automatically.
+# ==========================
+# /dist/
+# /build/
+
