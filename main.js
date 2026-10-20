@@ -70,7 +70,6 @@ function openWin(p, from) {
   w.style.left = Math.max(8, Math.min(innerWidth / 2 - 280, innerWidth - 580) + off) + "px";
   w.style.top = 60 + off + "px";
   w.querySelector(".t").textContent = p.title;
-  w.querySelector(".info h2").textContent = p.title;
 
   // Media: keep exactly one of video / cover image / colour block
   const video = w.querySelector("iframe.media"), cover = w.querySelector("img.media"), block = w.querySelector("div.media");
