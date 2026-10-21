@@ -22,11 +22,7 @@ body {
   -webkit-font-smoothing: antialiased;
   user-select: none;
   /* Wallpaper: replace with url("img/wallpaper.jpg") center/cover */
-  background:
-    radial-gradient(1200px 700px at 15% 10%, #ffd9a8 0%, transparent 60%),
-    radial-gradient(1000px 800px at 90% 20%, #a9c4ff 0%, transparent 55%),
-    radial-gradient(1100px 900px at 50% 110%, #e7a6d9 0%, transparent 60%),
-    #c8d3e6;
+  background: url("img/Artboard\ 1.jpg") center/cover no-repeat;
 }
 
 /* Menu bar */
