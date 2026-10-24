@@ -21,6 +21,7 @@ Desktop.ini
 # SFTP
 # ==========================
 sftp.json
+settings.json
 
 # ==========================
 # Logs and temporary files
