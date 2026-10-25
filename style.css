@@ -340,14 +340,14 @@ body {
   border-radius: 8px;
 }
 
-.meta { 
+.meta, .credits{ 
   display: grid; 
   grid-template-columns: max-content 1fr; 
   gap: 6px 16px; 
   margin-top: 16px; 
   font-size: 13px; 
 }
-.meta dt { 
+.meta dt, .credits dt { 
   color: var(--sub); 
 }
 
@@ -366,8 +366,15 @@ body {
   margin: 8px 0 0 18px; 
 }
 .details a { 
-  color: #0a62d9; 
+  color: var(--sub);
+  text-decoration: none;
 }
+
+.details a:hover { 
+  text-decoration: underline;
+  color: var(--text);
+}
+
 .details img, .details iframe, .details video { 
   width: 100%; display: block; margin-top: 12px; border: 0; border-radius: 8px; 
 }
