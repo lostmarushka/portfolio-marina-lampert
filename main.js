@@ -11,6 +11,7 @@ const read = el => ({
   tint: el.style.getPropertyValue("--tint").trim(),
   img: el.querySelector(".thumb img")?.getAttribute("src") || "",     // cover image
   video: el.dataset.video || "",                                       // YouTube video ID, optional
+   small: el.dataset.cover === "small",                                // small cover image, top left
 });
 
 // 2. Clock in the menu bar
@@ -72,6 +73,7 @@ function openWin(p, from) {
   w.querySelector(".t").textContent = p.title;
 
   // Media: keep exactly one of video / cover image / colour block
+  if (p.small) w.classList.add("cover-small");
   const video = w.querySelector("iframe.media"), cover = w.querySelector("img.media"), block = w.querySelector("div.media");
   if (p.video) {
     video.src = video.dataset.embed.replace("{id}", encodeURIComponent(p.video));
@@ -82,8 +84,8 @@ function openWin(p, from) {
 
   // Text and facts go into the info area; details and gallery follow in the order they appear in the article
   const info = w.querySelector(".info"), body = w.querySelector(".body");
-  p.el.querySelectorAll(".text, .meta").forEach(n => info.append(n.cloneNode(true)));
-  p.el.querySelectorAll(".details, .gallery").forEach(n => body.append(n.cloneNode(true)));
+  p.el.querySelectorAll(".text").forEach(n => info.append(n.cloneNode(true)));
+  p.el.querySelectorAll(".details, .meta, .gallery").forEach(n => body.append(n.cloneNode(true)));
   w.querySelectorAll(".gallery img").forEach(i => i.loading = "lazy");
 
   w.querySelector(".r").onclick = () => leave(w, () => { w.remove(); delete wins[p.title]; });
@@ -121,5 +123,7 @@ desk.addEventListener("pointerdown", e => {
 const aboutBtn = document.getElementById("open-about");
 const about = read(document.getElementById("about"));
 aboutBtn.onclick = () => openWin(about, aboutBtn);
+
+
 // // Let the desktop settle for a moment, then About grows out of the dock
 // setTimeout(() => openWin(about, aboutBtn), reduce ? 0 : 900);

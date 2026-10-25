@@ -5,6 +5,7 @@
   --win: #f6f6f6;
   --text: #1d1d1f;
   --sub: #6e6e73;
+  --highlight: #555555;
 }
 * { box-sizing: border-box; 
   margin: 0; 
@@ -97,6 +98,24 @@ body {
   pointer-events: none; 
 }
 
+.icon .thumb_novideo {
+  width: 54px; 
+  height: 54px; 
+  margin: 0 auto 6px;
+  border-radius: 12px; 
+  overflow: hidden;
+  background: var(--tint, #bbb);
+  box-shadow: 0 4px 14px rgba(0,0,0,.25), 0 0 0 1px rgba(0,0,0,.08);
+}
+
+.icon .thumb_novideo img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  display: block;
+  pointer-events: none;
+}
+
 .icon .label {
   display: inline-block; 
   max-width: 100%; 
@@ -110,16 +129,16 @@ body {
 }
 
 .icon.sel .label { 
-  background: #0a62d9; 
+  background: var(--highlight); 
   text-shadow: none; 
 }
 
-.icon.sel .thumb { 
-  box-shadow: 0 0 0 3px #0a62d9, 0 4px 14px rgba(0,0,0,.25); 
+.icon.sel .thumb, .icon.sel .thumb_novideo { 
+  box-shadow: 0 0 0 3px var(--highlight), 0 4px 14px rgba(0,0,0,.25); 
 }
 
-.icon:focus-visible .thumb { 
-  box-shadow: 0 0 0 3px #0a62d9; 
+.icon:focus-visible .thumb, .icon:focus-visible .thumb_novideo { 
+  box-shadow: 0 0 0 3px var(--highlight); 
 }
 
 /* Windows */
@@ -221,12 +240,11 @@ body {
   object-fit: cover; 
 }
 
-
 .media.video { 
   aspect-ratio: 16 / 9; 
   border: 0; 
-  background: #000; 
 }
+
 .win.max .media.video { 
   aspect-ratio: 16 / 9; 
   max-height: 70vh; 
@@ -236,6 +254,49 @@ body {
   aspect-ratio: auto; 
   max-height: 70vh; 
 }
+
+.win.cover-small img.media { 
+  --cover-w: 50px; 
+  width: min(var(--cover-w), calc(100% - 40px)); 
+  height: auto; 
+  max-height: 420px; 
+  aspect-ratio: auto; 
+  margin: 20px 0 0 20px; 
+  border-radius: 8px; 
+}
+
+.win.max.cover-small img.media { 
+  --cover-w: 360px; 
+  max-height: 520px; 
+}
+
+.win.cover-small .top { 
+  display: flex; 
+  flex-wrap: wrap; 
+  align-items: flex-start; 
+  padding-bottom: 12px; 
+}
+
+.win.cover-small .top img.media { 
+  flex: none; 
+}
+
+.win.cover-small .info { 
+  flex: 1 1 220px; 
+  padding: 20px 20px 0; 
+}
+
+.win.cover-small .info p:first-child { 
+  margin-top: 0; 
+}
+
+.win.max .media { 
+  aspect-ratio: auto; 
+  max-height: 70vh; 
+}
+
+.win .body > .meta { margin: 16px 20px 20px; }
+
 .info { 
   padding: 0px 20px 10px; 
 }
@@ -248,9 +309,9 @@ body {
 
 .info p { 
   margin-top: 6px; 
-  font-size: 14px; 
+  font-size: 14px;
   line-height: 1.5; 
-  color: var(--sub); 
+  color: var(--text); 
   max-width: 60ch; 
 }
 .info a { color: #0a62d9; }
@@ -338,6 +399,11 @@ body {
   object-fit: contain;
   display: block;
   border-radius: 8px;
+}
+
+.win .gallery img.horizontal {
+  grid-column: 1 / -1;
+  aspect-ratio: 16 / 9;
 }
 
 .meta, .credits{ 
