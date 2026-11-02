@@ -124,6 +124,17 @@ const aboutBtn = document.getElementById("open-about");
 const about = read(document.getElementById("about"));
 aboutBtn.onclick = () => openWin(about, aboutBtn);
 
+const copyrightBtn = document.getElementById("open-copyright");
+const copyright = read(document.getElementById("copyright"));
+copyrightBtn.onclick = () => openWin(copyright, copyrightBtn);
+
+// copyright stizzle
+document.addEventListener("contextmenu", function(e) {
+    if (e.target.tagName === "IMG") {
+        e.preventDefault();
+    }
+});
+
 
 // // Let the desktop settle for a moment, then About grows out of the dock
 // setTimeout(() => openWin(about, aboutBtn), reduce ? 0 : 900);
