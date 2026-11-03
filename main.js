@@ -80,7 +80,7 @@ function openWin(p, from) {
     video.title = p.title; cover.remove(); block.remove();
   } else if (p.img) {
     cover.src = p.img; cover.alt = p.title; video.remove(); block.remove();
-  } else { video.remove(); cover.remove(); }
+  } else { video.remove(); cover.remove(); block.remove(); }
 
   // Text and facts go into the info area; details and gallery follow in the order they appear in the article
   const info = w.querySelector(".info"), body = w.querySelector(".body");
@@ -128,13 +128,13 @@ const copyrightBtn = document.getElementById("open-copyright");
 const copyright = read(document.getElementById("copyright"));
 copyrightBtn.onclick = () => openWin(copyright, copyrightBtn);
 
+const notesBtn = document.getElementById("open-notes");
+const notes = read(document.getElementById("notes"));
+notesBtn.onclick = () => openWin(notes, notesBtn);
+
 // copyright stizzle
 document.addEventListener("contextmenu", function(e) {
     if (e.target.tagName === "IMG") {
         e.preventDefault();
     }
 });
-
-
-// // Let the desktop settle for a moment, then About grows out of the dock
-// setTimeout(() => openWin(about, aboutBtn), reduce ? 0 : 900);
