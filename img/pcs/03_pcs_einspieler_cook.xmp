@@ -1,0 +1,44 @@
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 7.0-c000 1.000000, 0000/00/00-00:00:00        ">
+ <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about=""
+    xmlns:xmp="http://ns.adobe.com/xap/1.0/"
+    xmlns:crs="http://ns.adobe.com/camera-raw-settings/1.0/"
+    xmlns:xmpDM="http://ns.adobe.com/xmp/1.0/DynamicMedia/"
+    xmlns:stDim="http://ns.adobe.com/xap/1.0/sType/Dimensions#"
+    xmlns:tiff="http://ns.adobe.com/tiff/1.0/"
+    xmlns:vfs="http://ns.adobe.com/video-foundation-settings/1.0/"
+    xmlns:photoshop="http://ns.adobe.com/photoshop/1.0/"
+    xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/"
+    xmlns:stEvt="http://ns.adobe.com/xap/1.0/sType/ResourceEvent#"
+   xmp:CreateDate="2026-05-17T16:20:24"
+   xmp:Rating="1"
+   xmp:MetadataDate="2026-11-03T12:03:52+01:00"
+   crs:AlreadyApplied="False"
+   crs:RawFileName="03_pcs_einspieler_cook.mp4"
+   xmpDM:duration="24.04"
+   xmpDM:videoFrameRate="25"
+   tiff:ImageWidth="1920"
+   tiff:ImageLength="1080"
+   vfs:version="1"
+   vfs:processVersion="1"
+   photoshop:SidecarForExtension="MP4"
+   photoshop:EmbeddedXMPDigest="00000000000000000000000000000000"
+   xmpMM:InstanceID="xmp.iid:92608919-8f27-4597-a1da-cd0c803a4f83"
+   xmpMM:DocumentID="xmp.did:92608919-8f27-4597-a1da-cd0c803a4f83"
+   xmpMM:OriginalDocumentID="xmp.did:92608919-8f27-4597-a1da-cd0c803a4f83">
+   <xmpDM:videoFrameSize
+    stDim:w="1920"
+    stDim:h="1080"/>
+   <xmpMM:History>
+    <rdf:Seq>
+     <rdf:li
+      stEvt:action="saved"
+      stEvt:instanceID="xmp.iid:92608919-8f27-4597-a1da-cd0c803a4f83"
+      stEvt:when="2026-11-03T12:03:52+01:00"
+      stEvt:softwareAgent="Adobe Lightroom 8.2 (Macintosh)"
+      stEvt:changed="/metadata"/>
+    </rdf:Seq>
+   </xmpMM:History>
+  </rdf:Description>
+ </rdf:RDF>
+</x:xmpmeta>
