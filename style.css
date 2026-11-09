@@ -2,7 +2,7 @@
   --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Segoe UI", Roboto, Arial, sans-serif;
   --menu-h: 28px;
   --glass: rgba(255,255,255,.55);
-  --win: #f6f6f6;
+  --win: rgb(239, 235, 234);
   --text: #1d1d1f;
   --sub: #6e6e73;
   --highlight: #555555;
@@ -313,7 +313,7 @@ body {
   font-size: 14px;
   line-height: 1.5; 
   color: var(--text); 
-  max-width: 60ch; 
+  max-width: 60ch;
 }
 .info a { color: #0a62d9; }
 
@@ -435,15 +435,24 @@ body {
 /* Free-form content inside a project window (headings, text, lists, images, videos) */
 .details { 
   padding: 0 20px 5px; 
-  font-size: 14px; line-height: 1.5; color: var(--sub); 
+  font-size: 14px; 
+  line-height: 1.5; 
+  color: var(--sub);
 } 
 
 .details h3 { 
-  margin: 22px 0 6px; font-size: 16px; font-weight: 700; color: var(--text); 
+  margin: 22px 0 6px; 
+  font-size: 16px; 
+  font-weight: 700; 
+  color: var(--text); 
 }
 
 .details p { 
-  margin-top: 8px; max-width: 60ch; 
+  margin-top: 8px;
+  margin-bottom: 8px;
+  max-width: 60ch;
+  background-color: rgb(255, 255, 255);
+  padding: 1px 5px 1px 5px;
 }
 
 .details ul, .details ol { 
