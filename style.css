@@ -51,13 +51,10 @@ body {
   margin-right: 16px; 
 }
 
-.menubar .left span:not(:first-child) { 
-  display: inline; 
-}
 
 @media (max-width: 600px) { 
   .menubar .left span { 
-    display: none !important; 
+    display: none; 
   } 
 }
 
@@ -122,8 +119,6 @@ body {
   padding: 2px 6px; 
   border-radius: 5px;
   font-size: 12.5px; 
-  /* font-weight: 500; 
-  line-height: 1.25;  */
   color: #fff;
   text-shadow: 0 1px 3px rgba(0,0,0,.6);
 }
@@ -227,11 +222,18 @@ body {
   pointer-events: none;
 }
 
+
 .body { 
   overflow: auto; 
   flex: 1; 
-  user-select: text; 
+  min-height: 0; 
+  user-select: text;
+  scrollbar-width: thin; 
+  overscroll-behavior: contain; 
+  scroll-behavior: smooth; 
 }
+
+@media (prefers-reduced-motion: reduce) { .body { scroll-behavior: auto; } }
 
 .media { 
   width: 100%; 
@@ -278,10 +280,6 @@ body {
   padding-bottom: 12px; 
 }
 
-.win.cover-small .top img.media { 
-  flex: none; 
-}
-
 .win.cover-small .info { 
   flex: 1 1 220px; 
   padding: 20px 20px 0; 
@@ -291,22 +289,11 @@ body {
   margin-top: 0; 
 }
 
-.win.max .media { 
-  aspect-ratio: auto; 
-  max-height: 70vh; 
-}
-
 .win .body > .meta{ 
   margin: 16px 20px 20px; }
 
 .info { 
   padding: 0px 20px 10px; 
-}
-
-.info h2 { 
-  font-size: 20px; 
-  font-weight: 700; 
-  letter-spacing: -.01em; 
 }
 
 .info p { 
@@ -373,9 +360,6 @@ body {
   outline-offset: 2px;
 }
 
-/* Dock labels on hover */
-.dock a, .dock button { position: relative; }
-
 .dock [data-label]::after {
   content: attr(data-label);
   position: absolute; 
@@ -400,22 +384,9 @@ body {
   transform: translateX(-50%) translateY(0); 
 }
 
-@media (prefers-reduced-motion: reduce) { .dock [data-label]::after { transition: none; } }
-
-@media (prefers-reduced-motion: reduce) {
-  .win { animation: none; } 
-  .dock a, .dock button { 
-    transition: none; 
-  }
-}
-
 /* Extra images inside a project window */
 .win:not(.max) { 
   max-height: calc(100vh - var(--menu-h) - 90px); 
-}
-
-.body { 
-  min-height: 0; 
 }
 
 .info p + p { 
@@ -450,21 +421,15 @@ body {
   aspect-ratio: 16 / 9;
 }
 
-.meta, .work { 
+.meta { 
   display: grid; 
   grid-template-columns: max-content 1fr; 
   gap: 6px 16px; 
-  margin-top: 16px; 
   font-size: 13px; 
 }
 
-.meta dt, .work dt{ 
+.meta dt{ 
   color: var(--sub); 
-}
-
-.work dd {
-  color: var(--text);
-  font-size: 13px;
 }
 
 /* Free-form content inside a project window (headings, text, lists, images, videos) */
@@ -481,6 +446,11 @@ body {
   max-width: 60ch;
   background-color: rgb(255, 255, 255);
   padding: 1px 5px 1px 5px;
+}
+
+.details p.preview { 
+  background: none; 
+  padding: 0; 
 }
 
 .details ul, .details ol { 
@@ -508,6 +478,17 @@ body {
   aspect-ratio: 16 / 9; 
 }
 
-/* Scrolling inside the window */
-.body { scrollbar-width: thin; overscroll-behavior: contain; scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) { .body { scroll-behavior: auto; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .win { 
+    animation: none; 
+  }
+
+  .dock a, .dock button, .dock [data-label]::after { 
+    transition: none; 
+  }
+  
+    .body { 
+      scroll-behavior: auto; 
+    }
+}
