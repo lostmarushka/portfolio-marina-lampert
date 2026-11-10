@@ -296,7 +296,8 @@ body {
   max-height: 70vh; 
 }
 
-.win .body > .meta { margin: 16px 20px 20px; }
+.win .body > .meta{ 
+  margin: 16px 20px 20px; }
 
 .info { 
   padding: 0px 20px 10px; 
