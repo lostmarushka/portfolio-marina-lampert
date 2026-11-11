@@ -132,6 +132,10 @@ const notesBtn = document.getElementById("open-notes");
 const notes = read(document.getElementById("notes"));
 notesBtn.onclick = () => openWin(notes, notesBtn);
 
+const ideasBtn = document.getElementById("open-ideas");
+const ideas = read(document.getElementById("ideas"));
+ideasBtn.onclick = () => openWin(ideas, ideasBtn);
+
 // copyright stizzle
 document.addEventListener("contextmenu", function(e) {
     if (e.target.tagName === "IMG") {
