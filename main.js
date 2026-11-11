@@ -20,9 +20,11 @@ const tick = () => clock.textContent = new Date().toLocaleString("en-GB",
   { weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
 tick(); setInterval(tick, 30000);
 
+const compact = matchMedia("(max-width: 1100px)");
 // 3. Generic drag helper (works for mouse and touch). Calls onTap if it barely moved.
 function makeDraggable(el, handle, { onTap, onStart } = {}) {
   handle.addEventListener("pointerdown", e => {
+    if (el.classList.contains("icon") && compact.matches) return; // grid mode: no dragging
     if (e.target.closest("button")) return;
     if (el.classList.contains("max")) return;
     onStart && onStart();
@@ -114,6 +116,7 @@ document.querySelectorAll(".icon").forEach(el => {
   const select = () => { document.querySelectorAll(".icon.sel").forEach(i => i.classList.remove("sel")); el.classList.add("sel"); el.style.zIndex = ++z; };
   makeDraggable(el, el, { onStart: select, onTap: () => coarse && openWin(p, el) });
   el.addEventListener("dblclick", () => openWin(p, el));
+  el.addEventListener("click", () => { if (compact.matches) { select(); openWin(p, el); } });
   el.addEventListener("keydown", e => { if (e.key === "Enter") openWin(p, el); });
 });
 desk.addEventListener("pointerdown", e => {

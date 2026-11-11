@@ -436,7 +436,6 @@ body {
 .details { 
   padding: 0 20px 5px; 
   font-size: 14px; 
-  /* line-height: 1.5;  */
   color: var(--sub);
 } 
 
@@ -491,4 +490,47 @@ body {
     .body { 
       scroll-behavior: auto; 
     }
+}
+
+/* ---------- Tablets & phones ---------- */
+@media (max-width: 1100px) {
+  /* Icons flow in a scrollable grid instead of absolute positions */
+  .desktop {
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+    align-content: start;
+    gap: 22px 8px;
+    padding: 24px 16px 110px;   /* space for the dock */
+    -webkit-overflow-scrolling: touch;
+  }
+  .icon {
+    position: relative;
+    left: auto !important;
+    top: auto !important;
+    width: auto;
+    touch-action: pan-y;        /* lets you scroll when touching an icon */
+  }
+  .icon .label { overflow-wrap: anywhere; }
+
+  /* Windows stay above the scrolling grid */
+  .win { position: fixed; }
+  .win:not(.max) { max-height: calc(100dvh - var(--menu-h) - 100px); }
+  .win.max {
+    top: calc(var(--menu-h) + 8px) !important;
+    height: calc(100dvh - var(--menu-h) - 110px);
+  }
+}
+
+@media (max-width: 600px) {
+  .desktop { grid-template-columns: repeat(3, 1fr); }
+
+  .win {
+    left: 4vw !important;
+    top: calc(var(--menu-h) + 12px) !important;
+    width: 92vw;
+  }
+  .dock { gap: 6px; padding: 6px 8px; }
+  .dock a, .dock button, .dock img { width: 46px; height: 46px; }
+  .info p, .details p { max-width: none; }
 }
