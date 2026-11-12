@@ -88,9 +88,9 @@ body {
 } /* shown inside the window instead */
 
 .icon .thumb {
-  width: 54px; 
-  height: 54px; 
-  margin: 0 auto 6px;
+  width: 58px; 
+  height: 58px; 
+  margin: 0 auto 3px;
   border-radius: 12px; 
   overflow: hidden;
   background: var(--tint, #bbb);
