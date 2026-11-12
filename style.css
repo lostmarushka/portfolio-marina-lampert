@@ -85,7 +85,7 @@ body {
 
 .icon .text, .icon .gallery, .icon .meta, .icon .details { 
   display: none; 
-} /* shown inside the window instead */
+} 
 
 .icon .thumb {
   width: 58px; 
@@ -106,8 +106,8 @@ body {
 }
 
 .icon .thumb_novideo {
-  width: 54px; 
-  height: 54px; 
+  width: 58px; 
+  height: 58px; 
   margin: 0 auto 6px;
   border-radius: 12px; 
   overflow: hidden;
