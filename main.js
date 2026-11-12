@@ -145,3 +145,77 @@ document.addEventListener("contextmenu", function(e) {
         e.preventDefault();
     }
 });
+
+// Lavalampe: Metaballs auf einem kleinen Canvas
+(() => {
+  const cv = document.getElementById("lava");
+  const ctx = cv.getContext("2d");
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const PX = 8;                                   // je grösser, desto gröber und schneller
+
+ const palette = [
+  [255, 210, 20],   // kräftiges Gelb
+  [139, 52, 255],   // leuchtendes Violett
+  [255, 190, 30],   // goldgelb
+  [106, 30, 214],   // tiefes Violett
+  [255, 225, 60],   // helles Gelb
+  [170, 80, 255],   // helles Violett
+  [250, 200, 40],   // Gelb
+  [120, 40, 230]    // Violett
+];
+  const balls = palette.map((c, i) => ({
+    c,
+    bx: 0.12 + (i / (palette.length - 1)) * 0.76, // Grundposition links-rechts
+    ph: Math.random() * 6.28,
+    sp: 0.035 + Math.random() * 0.04,             // Tempo (kleiner = langsamer)
+    sw: 0.05 + Math.random() * 0.06,              // seitliches Schwanken
+    r: 0.11 + Math.random() * 0.08                // Grösse
+  }));
+
+  let w, h, img, k;
+  function resize() {
+    w = Math.max(40, Math.ceil(innerWidth / PX));
+    h = Math.max(40, Math.ceil(innerHeight / PX));
+    cv.width = w; cv.height = h;
+    img = ctx.createImageData(w, h);
+    k = Math.sqrt(w * h);
+  }
+
+  function draw(t) {
+    const pos = balls.map(b => ({
+      x: (b.bx + b.sw * Math.sin(t * b.sp * 1.7 + b.ph)) * w,
+      y: (0.5 + 0.46 * Math.sin(t * b.sp + b.ph)) * h,
+      r2: Math.pow(k * b.r * (1 + 0.12 * Math.sin(t * b.sp * 2.3 + b.ph)), 2),
+      c: b.c
+    }));
+    const d = img.data;
+    let i = 0;
+    for (let y = 0; y < h; y++) {
+      for (let x = 0; x < w; x++, i += 4) {
+        let f = 0, r = 0, g = 0, b = 0;
+        for (const p of pos) {
+          const dx = x - p.x, dy = y - p.y;
+          const v = p.r2 / (dx * dx + dy * dy + 1);
+          f += v; r += p.c[0] * v; g += p.c[1] * v; b += p.c[2] * v;
+        }
+        const edge = Math.min(1, Math.max(0, (f - 0.85) / 0.3));  // harte Blasenkante, weich geglättet
+        const glow = Math.min(f, 0.85) * 0.22;                    // leichter Schein um die Blasen
+        d[i] = r / f; d[i + 1] = g / f; d[i + 2] = b / f;
+        d[i + 3] = 255 * Math.max(edge, glow);
+      }
+    }
+    ctx.putImageData(img, 0, 0);
+  }
+
+  resize();
+  addEventListener("resize", resize);
+  if (still) { draw(0); return; }
+
+  let last = 0;
+  const loop = ms => {
+    if (ms - last > 33) { draw(ms / 1000); last = ms; }  // ca. 30 Bilder pro Sekunde
+    requestAnimationFrame(loop);
+  };
+  requestAnimationFrame(loop);
+})();
+

@@ -22,10 +22,20 @@ body {
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   user-select: none;
-  /* Wallpaper: replace with url("img/wallpaper.jpg") center/cover */
-  background: url("img/background_skizzenbuch.jpg") center/cover no-repeat;
+  background: linear-gradient(#e4cff7, #e7c4ff);
 }
 
+#lava {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  filter: blur(3px);          /* macht die Ränder extra weich */
+  transform: scale(1.04);     /* versteckt den unscharfen Rand */
+}
+ 
 /* Menu bar */
 .menubar {
   position: fixed; 
