@@ -22,7 +22,7 @@ body {
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   user-select: none;
-  background: linear-gradient(#e4cff7, #e7c4ff);
+  background: linear-gradient(#fafafa, #efd9ff);
 }
 
 #lava {
@@ -90,8 +90,8 @@ body {
 .icon .thumb {
   width: 58px; 
   height: 58px; 
-  margin: 0 auto 3px;
-  border-radius: 12px; 
+  margin: 0 auto 4px;
+  border-radius: 9px; 
   overflow: hidden;
   background: var(--tint, #bbb);
   box-shadow: 0 4px 14px rgba(0,0,0,.25), 0 0 0 1px rgba(0,0,0,.08);
@@ -108,8 +108,8 @@ body {
 .icon .thumb_novideo {
   width: 58px; 
   height: 58px; 
-  margin: 0 auto 6px;
-  border-radius: 12px; 
+  margin: 0 auto 4px;
+  border-radius: 9px; 
   overflow: hidden;
   background: var(--tint, #bbb);
   box-shadow: 0 4px 14px rgba(0,0,0,.25), 0 0 0 1px rgba(0,0,0,.08);
@@ -145,7 +145,6 @@ body {
 .icon:focus-visible .thumb, .icon:focus-visible .thumb_novideo { 
   box-shadow: 0 0 0 3px var(--highlight); 
 }
-
 
 /* Windows */
 .win {

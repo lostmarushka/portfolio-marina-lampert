@@ -153,22 +153,22 @@ document.addEventListener("contextmenu", function(e) {
   const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const PX = 8;                                   // je grösser, desto gröber und schneller
 
- const palette = [
-  [255, 210, 20],   // kräftiges Gelb
-  [139, 52, 255],   // leuchtendes Violett
-  [255, 190, 30],   // goldgelb
-  [106, 30, 214],   // tiefes Violett
-  [255, 225, 60],   // helles Gelb
-  [170, 80, 255],   // helles Violett
-  [250, 200, 40],   // Gelb
-  [120, 40, 230]    // Violett
+const palette = [
+  [215, 185, 250],  // Helles Lavendel
+  [185, 145, 235],  // Sanftes Violett
+  [255, 205, 155],  // Helles Apricot
+  [250, 165, 105],  // Sanftes Orange
+  [155, 110, 220],  // Kräftiges Violett
+  [235, 125, 65],   // Intensives Orange
+  [195, 155, 240],  // Flieder
+  [210, 95, 50]     // Dunkles Orange
 ];
   const balls = palette.map((c, i) => ({
     c,
     bx: 0.12 + (i / (palette.length - 1)) * 0.76, // Grundposition links-rechts
     ph: Math.random() * 6.28,
     sp: 0.035 + Math.random() * 0.04,             // Tempo (kleiner = langsamer)
-    sw: 0.05 + Math.random() * 0.06,              // seitliches Schwanken
+    sw: 0.05 + Math.random() * 0.04,              // seitliches Schwanken
     r: 0.11 + Math.random() * 0.08                // Grösse
   }));
 
