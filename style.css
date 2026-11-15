@@ -299,7 +299,9 @@ body {
 }
 
 .win .body > .meta{ 
-  margin: 16px 20px 20px; }
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
 
 .info { 
   padding: 0px 20px 10px; 
